@@ -1,0 +1,29 @@
+body {
+    background: #eeeeee;
+}
+
+form {
+    border: solid gray 1px;
+    width: 30%;
+    border-radius: 2px;
+    margin: 50px auto;
+    background: #e4eaf5;
+    padding: 80px;
+}
+
+.name {
+    margin-left: 50px;
+}
+
+.email {
+    margin-left: 61px;
+}
+
+.password {
+    margin-left: 57px;
+}
+
+.submit {
+    margin-left: 100px;
+    width: 30%;
+}
