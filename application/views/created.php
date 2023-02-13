@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    DETAILS INSERTED!!!!
-     <a href="http://localhost/CodeIgniter-2.2.6/index.php/create">Return to create page</a>
+    <p>DETAILS INSERTED!!!!</p>
+    <p><a href="javascript:history.go(-1)" title="Return to previous page">« Go back</a></P>;
 </body>
 </html>

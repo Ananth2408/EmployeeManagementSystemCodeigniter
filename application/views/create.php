@@ -164,11 +164,12 @@
     <textarea name="current_address"></textarea>
     <?php echo form_error('current_address'); ?><br><br>
 
-    <label for="current_address">Permanent Address: </label>
+    <label for="permanent_address">Permanent Address: </label>
     <textarea name="permanent_address"></textarea>
     <?php echo form_error('permanent_address'); ?><br><br>
 
     <input class='submit' type="submit" name="Submit">
+
     </form>
 </body>
 

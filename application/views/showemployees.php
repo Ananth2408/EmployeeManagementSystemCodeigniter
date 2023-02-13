@@ -44,11 +44,11 @@
           <?php echo $employee->picture; ?>
         </td>
         <td>
-          <a>Edit\</a>
-          <a>Delete</a>
+          <a href="<?php echo base_url();?>index.php/createController/edit?id=<?php echo $employee->id; ?>">Edit\</a>
+          <a href="<?php echo base_url();?>index.php/createController/delete?id=<?php echo $employee->id; ?>">Delete</a>
         </td>
       </tr>
-    <?php } ?>
+    <?php }  ?>
   </table>
 </body>
 
