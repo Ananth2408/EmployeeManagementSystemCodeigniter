@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class CreateController extends CI_Controller
+class EmployeeController extends CI_Controller
 {
   public function index()
   {
@@ -50,9 +50,12 @@ class CreateController extends CI_Controller
       $employeeData['emergency_number'] = $this->input->POST('emergencynumber');
       $employeeData['current_address'] = $this->input->POST('current_address');
       $employeeData['permanent_address'] = $this->input->POST('permanent_address');
-      $result = $this->EmployeeModel->create($employeeData);
+      $employeeTechnology = $this->input->POST('technology');
+      print_r($employeeTechnology);
+      $Id = $this->EmployeeModel->create($employeeData);
+      $result = $this->EmployeeModel->add_technologies($employeeTechnology, $Id);
 
-      if ($result) {
+      if ($Id > 0 && $result) {
         $this->load->view('created');
       }
     } else {
@@ -88,7 +91,13 @@ class CreateController extends CI_Controller
   {
     $id = $_GET['id'];
     $data['employee_list'] = $this->EmployeeModel->get_employee('', $id);
-    $this->load->view('edit', $data);
+    print_r($data);
+    if (!empty($data['employee_list'])) {
+      $this->load->view('edit', $data);
+    } else {
+      $this->load->view('created');
+    }
+
 
   }
 
@@ -120,16 +129,27 @@ class CreateController extends CI_Controller
     }
   }
 
-  public function delete() {
-     $id = $_GET['id'];
-     $result = $this->EmployeeModel->delete_employee($id);
-     if ($result) {
+  public function delete()
+  {
+    $id = $_GET['id'];
+    $result = $this->EmployeeModel->delete_employee($id);
+    if ($result) {
       $this->load->view('created');
     } else {
       $this->load->view('edit');
     }
   }
 
-}
+  public function showbytechnolgies()
+  {
+    $this->load->view('technology');
+  }
 
+  public function showemployeesbytechnolgies()
+  {
+    $technolgy_id = $this->input->POST('technology');
+    $data['employee_list'] = $this->EmployeeModel->show_empoyees_by_technologies($technolgy_id);
+    $this->load->view('showemployees', $data);
+  }
+}
 ?>

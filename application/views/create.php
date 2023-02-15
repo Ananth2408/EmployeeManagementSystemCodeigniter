@@ -5,57 +5,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href='../css/create.css' />
+    <title>Document</title> create
+    <link rel="stylesheet" href='<?php echo base_url() ?>css/create.css' />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         $(function () {
-            $("#destination").select2();
+            $("#designation").select2();
         }); 
     </script>
 </head>
 
 <body>
-   
+
     <?php echo form_open('createController/insertData'); ?>
 
     <label for="firstname">First Name: </label>
-    <input class='name' type="text" name="firstname" value="<?php echo set_value('firstname'); ?>">
+    <input class='fname' type="text" name="firstname" value="<?php echo set_value('firstname'); ?>">
     <?php echo form_error('firstname'); ?><br><br>
 
     <label for="middlename">Middle Name: </label>
-    <input class='name' type="text" name="middlename" value="<?php echo set_value('middlename'); ?>">
+    <input class='mname' type="text" name="middlename" value="<?php echo set_value('middlename'); ?>">
     <?php echo form_error('middlename'); ?><br><br>
 
     <label for="lastname">Last Name: </label>
-    <input class='name' type="text" name="lastname" value="<?php echo set_value('lastname'); ?>">
+    <input class='lname' type="text" name="lastname" value="<?php echo set_value('lastname'); ?>">
     <?php echo form_error('lastname'); ?><br><br>
 
-    <span>Upload Photo :</span>
-    <input type="file" name="photo" value="<?php echo set_value('photo'); ?>">
+    <label for="photo">Upload Picture: </label>
+    <input class='photo' type="file" name="photo" value="<?php echo set_value('photo'); ?>">
     <?php echo form_error('photo'); ?><br><br>
-   
+
 
     <label for="date_of_birth">Date of birth: </label>
-    <input class='name' type="date" name="date_of_birth" value="<?php echo set_value('date_of_birth'); ?>">
+    <input class='dob' type="date" name="date_of_birth" value="<?php echo set_value('date_of_birth'); ?>">
     <?php echo form_error('date_of_birth'); ?><br><br>
 
     <label for="gender">Gender :</label>
     <input type="radio" name="gender" value="male" <?php echo set_radio('gender', 'male'); ?>>
-    <label for="male">Male</label>
+    <span>Male</span>
     <input type="radio" name="gender" value="female" <?php echo set_radio('gender', 'female'); ?>>
-    <label for="female">Female</label>
+    <span>Female</span>
     <input type="radio" name="gender" value="others" <?php echo set_radio('gender', 'others'); ?>>
-    <label for="others">others</label>
+    <span>others</span>
     <?php echo form_error('gender'); ?><br><br>
-    
+
 
     <label for="phonenumber">Phone Number: </label>
     <input class='name' type="number" name="phonenumber" value="<?php echo set_value('phonenumber'); ?>">
     <?php echo form_error('phonenumber'); ?><br><br>
-    
+
     <label for="email">Email-Id : </label>
     <input class='email' type="text" name="email" value="<?php echo set_value('email'); ?>">
     <?php echo form_error('Email_id'); ?><br><br>
@@ -130,12 +130,12 @@
         </option>
         <option value="Program manager" <?php echo set_select('designation', 'Program manager'); ?>>Program manager
         </option>
-    </select><?php echo form_error('designation'); ?><br><br>
+    </select>
+    <?php echo form_error('designation'); ?><br><br>
 
     <label for="year_of_experience">Year of experience: </label>
-    <input class='name' type="number" name="year_of_experience"
-        value="<?php echo set_value('year_of_experience'); ?>">
-        <?php echo form_error('year_of_experience'); ?><br><br>
+    <input class='name' type="number" name="year_of_experience" value="<?php echo set_value('year_of_experience'); ?>">
+    <?php echo form_error('year_of_experience'); ?><br><br>
 
     <label for="bloodgroup">Bloodgroup: </label>
     <select name="bloodgroup" id="blood">
@@ -155,10 +155,21 @@
     <input class='name' type="text" name="qualification" value="<?php echo set_value('qualification'); ?>">
     <?php echo form_error('qualification'); ?><br><br>
 
+    <label for="tecnology">Known Languages: </label><br>
+    <select name = "technology[ ]" id = "technology" multiple>
+        <option value="1" <?php echo set_select('technology[]', '1'); ?>>Php</option>
+        <option value="2" <?php echo set_select('technology[]', '2'); ?>>Java</option>
+        <option value="3" <?php echo set_select('technology[]', '3'); ?>>Phython</option>
+        <option value="4" <?php echo set_select('technology[]', '4'); ?>>Html</option>
+        <option value="5" <?php echo set_select('technology[]', '5'); ?>>Css</option>
+        <option value="6" <?php echo set_select('technology[]', '6'); ?>>JavaScript</option>
+        <option value="7" <?php echo set_select('technology[]', '7'); ?>>Angular</option>
+        <option value="8" <?php echo set_select('technology[]', '8'); ?>>React</option>
+    </select><br /><br>
+
     <label for="emergencynumber">Emergency Number: </label>
-    <input class='name' type="number" name="emergencynumber"
-        value="<?php echo set_value('emergencynumber'); ?>">
-        <?php echo form_error('emergencynumber'); ?><br><br>
+    <input class='name' type="number" name="emergencynumber" value="<?php echo set_value('emergencynumber'); ?>">
+    <?php echo form_error('emergencynumber'); ?><br><br>
 
     <label for="current_address">Current Address: </label>
     <textarea name="current_address"></textarea>

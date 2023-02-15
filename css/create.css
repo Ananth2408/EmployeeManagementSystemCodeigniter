@@ -4,26 +4,22 @@ body {
 
 form {
     border: solid gray 1px;
-    width: 30%;
-    border-radius: 2px;
+    width: 68%;
+    border-radius: 33px;
     margin: 50px auto;
     background: #e4eaf5;
-    padding: 80px;
+    padding: 25px;
 }
 
-.name {
+label {
     margin-left: 50px;
 }
 
-.email {
-    margin-left: 61px;
-}
-
-.password {
-    margin-left: 57px;
+input {
+    margin-left: 10px;
 }
 
 .submit {
     margin-left: 100px;
-    width: 30%;
+    width: 10%;
 }

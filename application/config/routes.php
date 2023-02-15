@@ -40,10 +40,12 @@
 
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
-$route['create'] = 'createController/create';
-$route['name'] = 'createController/showEmployeeOrderbyName';
-$route['experience'] = 'createController/showEmployeeOrderbyExperience';
-$route['search'] = 'createController/search';
+$route['employee'] = 'employeecontroller';
+$route['create'] = 'employeecontroller/create';
+$route['name'] = 'employeecontroller/showEmployeeOrderbyName';
+$route['experience'] = 'employeeontroller/showEmployeeOrderbyExperience';
+$route['search'] = 'employeecontroller/search';
+$route['technology'] = 'employeecontroller/showbytechnolgies';
 // $route['insertdata'] = 'createController/insertData';
 
 
