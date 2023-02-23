@@ -1,0 +1,19 @@
+body {
+    text-align: center;
+    background-color: aliceblue;
+   
+}
+
+fieldset {
+    width: 30%;
+    border-radius: 30px;
+    margin-left: 35%;
+    margin-top: 17%;
+    background-color: #cbfafa;
+}
+
+.success {
+    font-size: large;
+    font-weight: 1000;
+    
+}

@@ -2,15 +2,26 @@
 
 class EmployeeController extends CI_Controller
 {
+
   public function index()
   {
-    $data['employee_list'] = $this->EmployeeModel->get_all_employees('');
+    $config = array();
+    $config["base_url"] = base_url() . 'employeecontroller/index';
+    $config["total_rows"] = $this->EmployeeModel->get_all_count();
+    $config["per_page"] = 5;
+    $config["uri_segment"] = 3;
+    $config["num_links"] = 2;
+    $this->pagination->initialize($config);
+    $page = $this->uri->segment(3, 0);
+    $str_links = $this->pagination->create_links();
+    $data["links"] = explode('&nbsp;', $str_links);
+    $data['employee_list'] = $this->EmployeeModel->get_all_employees('', $config["per_page"], $page);
     $this->load->view('showemployees', $data);
   }
 
   public function create()
   {
-    $this->load->view('create', 0);
+    $this->load->view('create');
   }
 
   public function insertData()
@@ -34,6 +45,7 @@ class EmployeeController extends CI_Controller
     // $this->form_validation->set_rules('permanent_address', 'Permanent_address', 'required');
 
     if ($this->form_validation->run() == TRUE) {
+
       $employeeData['first_name'] = $this->input->POST('firstname');
       $employeeData['last_name'] = $this->input->POST('lastname');
       $employeeData['middle_name'] = $this->input->POST('middlename');
@@ -50,39 +62,70 @@ class EmployeeController extends CI_Controller
       $employeeData['emergency_number'] = $this->input->POST('emergencynumber');
       $employeeData['current_address'] = $this->input->POST('current_address');
       $employeeData['permanent_address'] = $this->input->POST('permanent_address');
+      $employeeData['company_id'] = $this->input->post('company');
+      $rows = $this->EmployeeModel->get_all_rows($employeeData['company_id']);
+      $count = 101 + $rows;
+      $company = array("I2I", "EL5");
+      $employeeData['employee_id'] = $company[$employeeData['company_id'] - 1] . $count;
       $employeeTechnology = $this->input->POST('technology');
-      print_r($employeeTechnology);
+
       $Id = $this->EmployeeModel->create($employeeData);
       $result = $this->EmployeeModel->add_technologies($employeeTechnology, $Id);
 
       if ($Id > 0 && $result) {
-        $this->load->view('created');
+        echo "<script type='text/javascript'>alert('Employee added successfully');location='index';</script>";
       }
     } else {
-      $this->load->view('create', 0);
+      $this->load->view('unsuccess');
     }
+  }
+
+  public function showEmployee()
+  {
+
+    $id = $_GET['id'];
+
+    $data['employee_list'] = $this->EmployeeModel->get_employee('', $id);
+    $this->load->view('showemployee', $data);
   }
 
   public function showEmployeeOrderbyName()
   {
-    $data['employee_list'] = $this->EmployeeModel->get_all_employees('first_name');
+    $config = array();
+    $config["base_url"] = base_url() . 'employeecontroller/index';
+    $config["total_rows"] = $this->EmployeeModel->get_all_count();
+    $config["per_page"] = 5;
+    $config["uri_segment"] = 3;
+    $config["num_links"] = 2;
+    $this->pagination->initialize($config);
+    $page = $this->uri->segment(3, 0);
+    $str_links = $this->pagination->create_links();
+    $data["links"] = explode('&nbsp;', $str_links);
+    $data['employee_list'] = $this->EmployeeModel->get_all_employees('first_name', $config["per_page"], $page);
     $this->load->view('showemployees', $data);
   }
 
   public function showEmployeeOrderbyExperience()
   {
-    $data['employee_list'] = $this->EmployeeModel->get_all_employees('experience');
+    $config = array();
+    $config["base_url"] = base_url() . 'employeecontroller/index';
+    $config["total_rows"] = $this->EmployeeModel->get_all_count();
+    $config["per_page"] = 5;
+    $config["uri_segment"] = 3;
+    $config["num_links"] = 2;
+    $this->pagination->initialize($config);
+    $page = $this->uri->segment(3, 0);
+    $str_links = $this->pagination->create_links();
+    $data["links"] = explode('&nbsp;', $str_links);
+    $data['employee_list'] = $this->EmployeeModel->get_all_employees('experience', $config["per_page"], $page);
     $this->load->view('showemployees', $data);
-  }
-
-  public function search()
-  {
-    $this->load->view('searchemployee');
   }
 
   public function searchEmployee()
   {
     $name = $this->input->post('firstname');
+    $str_links = '';
+    $data["links"] = explode('&nbsp;', $str_links);
     $data['employee_list'] = $this->EmployeeModel->get_employee($name, 0);
     $this->load->view('showemployees', $data);
   }
@@ -91,14 +134,12 @@ class EmployeeController extends CI_Controller
   {
     $id = $_GET['id'];
     $data['employee_list'] = $this->EmployeeModel->get_employee('', $id);
-    print_r($data);
+
     if (!empty($data['employee_list'])) {
       $this->load->view('edit', $data);
     } else {
-      $this->load->view('created');
+      $this->load->view('unsuccess');
     }
-
-
   }
 
   public function editEmployee()
@@ -120,12 +161,14 @@ class EmployeeController extends CI_Controller
     $employeeData['emergency_number'] = $this->input->POST('emergencynumber');
     $employeeData['current_address'] = $this->input->POST('current_address');
     $employeeData['permanent_address'] = $this->input->POST('permanent_address');
+    $employeeTechnology = $this->input->POST('technology');
 
     $result = $this->EmployeeModel->edit_employee($employeeData);
-    if ($result) {
-      $this->load->view('created');
+    $output = $this->EmployeeModel->add_technologies($employeeTechnology, $employeeData['id']);
+    if ($result& $output) {
+      echo "<script type='text/javascript'>alert('Employee edited successfully');location='employeecontroller/index';</script>";
     } else {
-      $this->load->view('edit');
+      $this->load->view('unsuccess');
     }
   }
 
@@ -134,9 +177,9 @@ class EmployeeController extends CI_Controller
     $id = $_GET['id'];
     $result = $this->EmployeeModel->delete_employee($id);
     if ($result) {
-      $this->load->view('created');
+      echo "<script type='text/javascript'>alert('Employee deleted successfully');location='employeecontroller/index';</script>";
     } else {
-      $this->load->view('edit');
+      $this->load->view('unsuccess');
     }
   }
 
@@ -145,10 +188,23 @@ class EmployeeController extends CI_Controller
     $this->load->view('technology');
   }
 
-  public function showemployeesbytechnolgies()
+  public function showemployeesbytechnologies()
   {
+    $config = array();
+    $config["base_url"] = base_url() . 'employeecontroller/showemployeesbytechnologies';
+    $config["total_rows"] = $this->EmployeeModel->get_all_count();
+    $config["per_page"] = 5;
+    $config["uri_segment"] = 3;
+    $config["num_links"] = 2;
+    $this->pagination->initialize($config);
+    $page = $this->uri->segment(3, 0);
+    $str_links = $this->pagination->create_links();
+    $data["links"] = explode('&nbsp;', $str_links);
     $technolgy_id = $this->input->POST('technology');
-    $data['employee_list'] = $this->EmployeeModel->show_empoyees_by_technologies($technolgy_id);
+    $data['employee_list'] = $this->EmployeeModel->show_employees_by_technologies($technolgy_id, $config["per_page"], $page);
+    echo "<pre>";
+    print_r($data);
+    echo "<pre>";
     $this->load->view('showemployees', $data);
   }
 }

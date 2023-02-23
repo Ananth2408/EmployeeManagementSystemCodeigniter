@@ -1,8 +1,12 @@
+body {
+    background-color: aliceblue;
+}
+
 table,
 td,
 th {
-    border: 1px solid #ddd;
-    text-align: left;
+    border: 1px solid #2196f3;
+    text-align: center;
 }
 
 table {
@@ -13,4 +17,31 @@ table {
 th,
 td {
     padding: 15px;
+}
+
+th {
+    background-color: #8bc7f8;
+}
+
+a {
+    text-decoration: none;
+}
+
+.firstname,
+.lastname,
+.designation {
+    text-transform: capitalize;
+}
+
+#pagination {
+    margin-left: 35%;
+}
+
+li {
+    list-style: none;
+    display: inline;
+    margin-left: 10px;
+    padding: 5px 5px;
+    border: 1px solid #2196f3;
+    color: #2564cf;
 }

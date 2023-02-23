@@ -1,25 +1,161 @@
 body {
-    background: #eeeeee;
+    background: #f0f8ff;
 }
 
 form {
-    border: solid gray 1px;
+    border: solid darkblue 1px;
     width: 68%;
     border-radius: 33px;
     margin: 50px auto;
-    background: #e4eaf5;
+    background: azure;
     padding: 25px;
+}
+input, select, span {
+    color: darkblue;
 }
 
 label {
+    margin-left: 80px;
+    font-size: larger;
+    color: darkblue;
+}
+
+.note {
     margin-left: 50px;
 }
 
-input {
-    margin-left: 10px;
+.submit {
+    margin-left: 70%;
+    width: 10%;
+    height: 30px;
+    border-radius: 8px;
+    background: #cce7f6;
+    border-color: #cce7f6;
+    color: darkblue;
 }
 
-.submit {
-    margin-left: 100px;
-    width: 10%;
+.back {
+        margin-left: 57px;
+        width: 10%;
+        height: 30px;
+        border-radius: 8px;
+        background: #cce7f6;
+    border-color: #cce7f6;
+    color: darkblue;
+}
+
+p {
+    color: red;
+    display: inline;
+}
+.firstname {
+    margin-left: 23.7%;
+    height: 20px;
+    width: 200px;
+}
+
+.middlename {
+    margin-left: 21.3%;
+    height: 20px;
+    width: 200px;
+}
+
+.lastname {
+    margin-left: 24%;
+    height: 20px;
+    width: 200px;
+}
+
+.photo {
+    margin-left: 14%;
+    width: 200px;
+}
+
+.dob {
+    margin-left: 22%;
+    height: 20px;
+    width: 200px;
+}
+
+.gender {
+    margin-right: 25.5%;
+}
+
+.gender-types {
+    margin-left: 25px;
+}
+
+.phonenumber {
+    margin-left: 19.5%;
+    height: 20px;
+    width: 200px;
+}
+
+.emergencynumber {
+    margin-left: 15.1%;
+    height: 20px;
+    width: 200px;
+}
+
+.experience {
+    margin-left: 16.3%;
+    height: 20px;
+    width: 200px;
+}
+
+.email {
+    margin-left: 24.5%;
+    height: 20px;
+    width: 200px;
+}
+
+.currentaddress {
+    margin-left: 18.5%;
+    height: 20px;
+    width: 200px;
+}
+
+.permanentaddress {
+    margin-left: 15.5%;
+    height: 20px;
+    width: 200px;
+}
+
+.doj {
+    margin-left: 19.5%;
+    height: 20px;
+    width: 200px;
+}
+
+.qualification {
+    margin-left: 21.5%;
+    height: 20px;
+    width: 200px;
+}
+
+.bloodgroup {
+    margin-left: 22.6%;
+    height: 20px;
+    width: 200px;
+}
+
+.designation {
+    margin-right: 22.2%;
+}
+
+.technology {
+    margin-left: 16.3%;
+    height: 20px;
+    width: 200px;
+}
+
+.company {
+    height: 25px;
+    margin-left: 25%;
+    width: 200px;
+}
+
+h1 {
+    margin-left: 32%;
+    color: darkblue;
 }

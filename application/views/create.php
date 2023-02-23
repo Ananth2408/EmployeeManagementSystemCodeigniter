@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title> create
+    <title>Create Page</title>
     <link rel="stylesheet" href='<?php echo base_url() ?>css/create.css' />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -18,23 +18,30 @@
 </head>
 
 <body>
+    <h1>Create Employee Details</h1>
 
-    <?php echo form_open('createController/insertData'); ?>
+    <?php echo form_open('employeecontroller/insertData'); ?>
+
+    <label for="company">Company: </label>
+    <select class="company" name="company" id="company">
+        <option value="1" <?php echo set_select('company', '1'); ?>>Ideas2It</option>
+        <option value="2" <?php echo set_select('company', '2'); ?>>Element5</option>
+    </select><br><br>
 
     <label for="firstname">First Name: </label>
-    <input class='fname' type="text" name="firstname" value="<?php echo set_value('firstname'); ?>">
+    <input class='firstname' type="text" name="firstname" value="<?php echo set_value('firstname'); ?>">
     <?php echo form_error('firstname'); ?><br><br>
 
     <label for="middlename">Middle Name: </label>
-    <input class='mname' type="text" name="middlename" value="<?php echo set_value('middlename'); ?>">
+    <input class='middlename' type="text" name="middlename" value="<?php echo set_value('middlename'); ?>">
     <?php echo form_error('middlename'); ?><br><br>
 
     <label for="lastname">Last Name: </label>
-    <input class='lname' type="text" name="lastname" value="<?php echo set_value('lastname'); ?>">
+    <input class='lastname' type="text" name="lastname" value="<?php echo set_value('lastname'); ?>">
     <?php echo form_error('lastname'); ?><br><br>
 
-    <label for="photo">Upload Picture: </label>
-    <input class='photo' type="file" name="photo" value="<?php echo set_value('photo'); ?>">
+    <label for="photo">Upload Profie Picture: </label>
+    <input class='photo' type="file" name="photo" accept="image/x-png,image/jpg,image/jpeg" value="<?php echo set_value('photo'); ?>">
     <?php echo form_error('photo'); ?><br><br>
 
 
@@ -42,18 +49,18 @@
     <input class='dob' type="date" name="date_of_birth" value="<?php echo set_value('date_of_birth'); ?>">
     <?php echo form_error('date_of_birth'); ?><br><br>
 
-    <label for="gender">Gender :</label>
-    <input type="radio" name="gender" value="male" <?php echo set_radio('gender', 'male'); ?>>
+    <label class="gender" for="gender">Gender :</label>
+    <input  type="radio" name="gender" value="male" <?php echo set_radio('gender', 'male'); ?>>
     <span>Male</span>
-    <input type="radio" name="gender" value="female" <?php echo set_radio('gender', 'female'); ?>>
+    <input class="gender-types" type="radio" name="gender" value="female" <?php echo set_radio('gender', 'female'); ?>>
     <span>Female</span>
-    <input type="radio" name="gender" value="others" <?php echo set_radio('gender', 'others'); ?>>
-    <span>others</span>
+    <input class="gender-types" type="radio" name="gender" value="others" <?php echo set_radio('gender', 'others'); ?>>
+    <span>Others</span>
     <?php echo form_error('gender'); ?><br><br>
 
 
     <label for="phonenumber">Phone Number: </label>
-    <input class='name' type="number" name="phonenumber" value="<?php echo set_value('phonenumber'); ?>">
+    <input class='phonenumber' type="number" name="phonenumber" value="<?php echo set_value('phonenumber'); ?>">
     <?php echo form_error('phonenumber'); ?><br><br>
 
     <label for="email">Email-Id : </label>
@@ -61,10 +68,10 @@
     <?php echo form_error('Email_id'); ?><br><br>
 
     <label for="date_of_joining">Date of joining: </label>
-    <input class='name' type="date" name="date_of_joining" value="<?php echo set_value('date_of_joining'); ?>">
+    <input class='doj' type="date" name="date_of_joining" placeholder="dd-mm-yyyy" value="<?php echo set_value('date_of_joining'); ?>">
     <?php echo form_error('date_of_joining'); ?><br><br>
 
-    <label for="designation">Designation: </label>
+    <label class="designation" for="designation">Designation: </label>
     <select name="designation" id="designation">
         <option value=""></option>
         <option value="Computer systems manager" <?php echo set_select('designation', 'Computer systems manager'); ?>>
@@ -134,11 +141,12 @@
     <?php echo form_error('designation'); ?><br><br>
 
     <label for="year_of_experience">Year of experience: </label>
-    <input class='name' type="number" name="year_of_experience" value="<?php echo set_value('year_of_experience'); ?>">
+    <input class='experience' type="number" name="year_of_experience"
+        value="<?php echo set_value('year_of_experience'); ?>">
     <?php echo form_error('year_of_experience'); ?><br><br>
 
     <label for="bloodgroup">Bloodgroup: </label>
-    <select name="bloodgroup" id="blood">
+    <select class="bloodgroup" name="bloodgroup" id="blood">
         <option value=""></option>
         <option value="A+ve" <?php echo set_select('bloodgroup', 'A+ve'); ?>>A+ve</option>
         <option value="B+ve" <?php echo set_select('bloodgroup', 'B+ve'); ?>>B+ve</option>
@@ -152,11 +160,11 @@
     <?php echo form_error('bloodgroup'); ?><br><br>
 
     <label for="qualification">Qualification: </label>
-    <input class='name' type="text" name="qualification" value="<?php echo set_value('qualification'); ?>">
+    <input class='qualification' type="text" name="qualification" value="<?php echo set_value('qualification'); ?>">
     <?php echo form_error('qualification'); ?><br><br>
 
-    <label for="tecnology">Known Languages: </label><br>
-    <select name = "technology[ ]" id = "technology" multiple>
+    <label for="tecnology">Known Languages: </label>
+    <select class="technology" name="technology[ ]" id="technology" multiple>
         <option value="1" <?php echo set_select('technology[]', '1'); ?>>Php</option>
         <option value="2" <?php echo set_select('technology[]', '2'); ?>>Java</option>
         <option value="3" <?php echo set_select('technology[]', '3'); ?>>Phython</option>
@@ -168,19 +176,20 @@
     </select><br /><br>
 
     <label for="emergencynumber">Emergency Number: </label>
-    <input class='name' type="number" name="emergencynumber" value="<?php echo set_value('emergencynumber'); ?>">
+    <input class='emergencynumber' type="number" name="emergencynumber"
+        value="<?php echo set_value('emergencynumber'); ?>">
     <?php echo form_error('emergencynumber'); ?><br><br>
 
     <label for="current_address">Current Address: </label>
-    <textarea name="current_address"></textarea>
+    <textarea class="currentaddress" name="current_address"></textarea>
     <?php echo form_error('current_address'); ?><br><br>
 
     <label for="permanent_address">Permanent Address: </label>
-    <textarea name="permanent_address"></textarea>
+    <textarea class="permanentaddress" name="permanent_address"></textarea>
     <?php echo form_error('permanent_address'); ?><br><br>
 
     <input class='submit' type="submit" name="Submit">
-
+    <input class='back' type="button" onclick=javascript:history.go(-1) name="Back" value="Back">
     </form>
 </body>
 
