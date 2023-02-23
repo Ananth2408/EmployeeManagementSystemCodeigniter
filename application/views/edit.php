@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href='../css/create.css' />
+  <title>Edit Page</title>
+  <link rel="stylesheet" href='<?php echo base_url() ?>css/create.css' />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script>
     $(function () {
-      $("#destination").select2();
+      $("#designation").select2();
     }); 
   </script>
 </head>
@@ -21,60 +21,62 @@
 
   <?php
   foreach ($employee_list as $employee) {
-    echo form_open('createController/editEmployee'); ?>
+    echo form_open('editemployee'); ?>
 
     <input type="hidden" name="id" value=<?php echo $employee->id; ?>>
 
     <label for="firstname">First Name: </label>
-    <input class='name' type="text" name="firstname" value="<?php echo $employee->first_name; ?>">
+    <input class='firstname' type="text" name="firstname" value="<?php echo $employee->first_name; ?>">
     <?php echo form_error('firstname'); ?><br><br>
 
     <label for="middlename">Middle Name: </label>
-    <input class='name' type="text" name="middlename" value="<?php echo $employee->middle_name;
-    ; ?>">
+    <input class='middlename' type="text" name="middlename" value="<?php echo $employee->middle_name;?>">
     <?php echo form_error('middlename'); ?><br><br>
 
     <label for="lastname">Last Name: </label>
-    <input class='name' type="text" name="lastname" value="<?php echo $employee->last_name;
-    ; ?>">
+    <input class='lastname' type="text" name="lastname" value="<?php echo $employee->last_name; ?>">
     <?php echo form_error('lastname'); ?><br><br>
 
-    <span>Upload Photo :</span>
-    <input type="file" name="photo" value="<?php echo $employee->picture; ?>">
+    <label>Upload Profie Picture: </label>
+    <input class='photo' type="file" name="photo" value="<?php echo $employee->picture; ?>">
     <?php echo form_error('photo'); ?><br><br>
 
 
     <label for="date_of_birth">Date of birth: </label>
-    <input class='name' type="date" name="date_of_birth" value="<?php echo $employee->date_of_birth; ?>">
+    <input class='dob' type="date" name="date_of_birth" value="<?php echo $employee->date_of_birth; ?>">
     <?php echo form_error('date_of_birth'); ?><br><br>
 
     <label for="gender">Gender :</label>
-    <input type="radio" name="gender" value="male" <?php if ($employee->gender == 'male')
+    <input  class='gender' type="radio" name="gender" value="male" <?php if ($employee->gender == 'male')
       echo 'checked="checked"'; ?>>
-    <label for="male">Male</label>
-    <input type="radio" name="gender" value="female" <?php if ($employee->gender == 'female')
+    <span for="male">Male</span>
+    <input class='gender' type="radio" name="gender" value="female" <?php if ($employee->gender == 'female')
       echo 'checked="checked"'; ?>>
-    <label for="female">Female</label>
-    <input type="radio" name="gender" value="others" <?php if ($employee->gender == 'others')
+    <span for="female">Female</span>
+    <input class='gender' type="radio" name="gender" value="others" <?php if ($employee->gender == 'others')
       echo 'checked="checked"'; ?>>
-    <label for="others">others</label>
+    <span for="others">others</span>
     <?php echo form_error('gender'); ?><br><br>
 
 
     <label for="phonenumber">Phone Number: </label>
-    <input class='name' type="number" name="phonenumber" value="<?php echo $employee->contact_number; ?>">
+    <input class='phonenumber' type="number" name="phonenumber" value="<?php echo $employee->contact_number; ?>">
     <?php echo form_error('phonenumber'); ?><br><br>
+
+    <label for="emergencynumber">Emergency Number: </label>
+    <input class='emergencynumber' type="number" name="emergencynumber" value="<?php echo $employee->emergency_number; ?>">
+    <?php echo form_error('emergencynumber'); ?><br><br>
 
     <label for="email">Email-Id : </label>
     <input class='email' type="text" name="email" value="<?php echo $employee->emailid; ?>">
     <?php echo form_error('Email_id'); ?><br><br>
 
     <label for="date_of_joining">Date of joining: </label>
-    <input class='name' type="date" name="date_of_joining" value="<?php echo $employee->date_of_joining; ?>">
+    <input class='doj' type="date" name="date_of_joining" value="<?php echo $employee->date_of_joining; ?>">
     <?php echo form_error('date_of_joining'); ?><br><br>
 
-    <label for="designation">Designation: </label>
-    <select name="designation" id="designation">
+    <label class="designation" for="designation">Designation: </label>
+    <select  name="designation" id="designation">
       <option value="Computer systems manager" <?php if ($employee->designation == "Computer systems manager") {
         echo "selected";
       } ?>>
@@ -229,11 +231,11 @@
     <?php echo form_error('designation'); ?><br><br>
 
     <label for="year_of_experience">Year of experience: </label>
-    <input class='name' type="number" name="year_of_experience" value="<?php echo $employee->experience; ?>">
+    <input class='experience' type="number" name="year_of_experience" value="<?php echo $employee->experience; ?>">
     <?php echo form_error('year_of_experience'); ?><br><br>
 
     <label for="bloodgroup">Bloodgroup: </label>
-    <select name="bloodgroup" id="blood">
+    <select class="bloodgroup" name="bloodgroup" id="blood">
       <option value="A+ve" <?php if ($employee->blood_group == "A+ve") {
         echo "selected";
       } ?>>A+ve</option>
@@ -261,23 +263,34 @@
     </select>
     <?php echo form_error('bloodgroup'); ?><br><br>
 
+    <span class="note">(* Select only newly konwn languages)</span><br>
+    <label for="tecnology">Known Languages: </label>
+    <select class="technology" name="technology[ ]" id="technology" multiple>
+        <option value="1" <?php echo set_select('technology[]', '1'); ?>>Php</option>
+        <option value="2" <?php echo set_select('technology[]', '2'); ?>>Java</option>
+        <option value="3" <?php echo set_select('technology[]', '3'); ?>>Phython</option>
+        <option value="4" <?php echo set_select('technology[]', '4'); ?>>Html</option>
+        <option value="5" <?php echo set_select('technology[]', '5'); ?>>Css</option>
+        <option value="6" <?php echo set_select('technology[]', '6'); ?>>JavaScript</option>
+        <option value="7" <?php echo set_select('technology[]', '7'); ?>>Angular</option>
+        <option value="8" <?php echo set_select('technology[]', '8'); ?>>React</option>
+    </select><br /><br>
+
+
     <label for="qualification">Qualification: </label>
-    <input class='name' type="text" name="qualification" value="<?php echo $employee->qualification; ?>">
+    <input class='qualification' type="text" name="qualification" value="<?php echo $employee->qualification; ?>">
     <?php echo form_error('qualification'); ?><br><br>
 
-    <label for="emergencynumber">Emergency Number: </label>
-    <input class='name' type="number" name="emergencynumber" value="<?php echo $employee->emergency_number; ?>">
-    <?php echo form_error('emergencynumber'); ?><br><br>
-
     <label for="current_address">Current Address: </label>
-    <textarea name="current_address"><?php echo $employee->current_address; ?></textarea>
+    <textarea class="currentaddress" name="current_address"><?php echo $employee->current_address; ?></textarea>
     <?php echo form_error('current_address'); ?><br><br>
 
     <label for="permanent_address">Permanent Address: </label>
-    <textarea name="permanent_address"><?php echo $employee->permanent_address; ?></textarea>
+    <textarea class="permanentaddress" name="permanent_address"><?php echo $employee->permanent_address; ?></textarea>
     <?php echo form_error('permanent_address'); ?><br><br>
 
-    <input class='submit' type="submit" name="Update">
+    <input class='submit' type="submit" name="Update" value="Update">
+    <input class='back' type="button" onclick = javascript:history.go(-1) name="Back" value="Back">
   <?php } ?>
   </form>
 </body>

@@ -38,14 +38,18 @@
 |
 */
 
-$route['default_controller'] = "welcome";
+$route['default_controller'] = "employeecontroller";
 $route['404_override'] = '';
-$route['employee'] = 'employeecontroller';
 $route['create'] = 'employeecontroller/create';
+$route['edit'] = 'employeecontroller/edit';
+$route['editemployee'] = 'employeecontroller/editEmployee';
 $route['name'] = 'employeecontroller/showEmployeeOrderbyName';
-$route['experience'] = 'employeeontroller/showEmployeeOrderbyExperience';
-$route['search'] = 'employeecontroller/search';
+$route['experience'] = 'employeecontroller/showEmployeeOrderbyExperience';
+$route['search'] = 'employeecontroller/searchEmployee';
 $route['technology'] = 'employeecontroller/showbytechnolgies';
+$route['showtechnology'] = 'employeecontroller/showemployeesbytechnologies';
+$route['delete'] = 'employeecontroller/delete';
+$route['view'] = 'employeecontroller/showEmployee';
 // $route['insertdata'] = 'createController/insertData';
 
 

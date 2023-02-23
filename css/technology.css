@@ -1,0 +1,19 @@
+body {
+    text-align: center;
+    background-color: aliceblue;
+   
+}
+
+fieldset {
+    width: 30%;
+    border-radius: 30px;
+    margin-left: 35%;
+    margin-top: 17%;
+    background-color: #cbfafa;
+}
+
+button {
+    border-radius: 9px;
+    border-color: #cbfafa;
+    background-color: #86f8f8;
+}

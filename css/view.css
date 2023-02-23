@@ -1,0 +1,54 @@
+body {
+    background-color: aliceblue;
+}
+
+td,
+th {
+    border: 1px solid #11efe4;
+    text-align: center;
+    display: block;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+th {
+    background-color: rgb(203, 250, 250);
+}
+tr { display: block; float: left; }
+
+.imageBox
+{
+	width: 50%;
+    margin-top: 9.3%;
+    margin-left: 30%;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.imageBox img
+{
+	width: 100%;
+}
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.left-side {
+    width : 30%;
+    height: 100%;
+    display: inline-block;
+}
+.right-side {
+    width: 69.6%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.table {
+ margin-top: 4%;
+}
