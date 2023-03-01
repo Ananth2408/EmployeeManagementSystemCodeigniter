@@ -1,19 +1,40 @@
 body {
-    text-align: center;
     background-color: aliceblue;
    
 }
 
 fieldset {
-    width: 30%;
+    width: 45%;
+    height: 160px;
     border-radius: 30px;
-    margin-left: 35%;
-    margin-top: 17%;
+    margin-left: 28%;
+    margin-top: 10%;
     background-color: #cbfafa;
+    text-align: center;
 }
 
 button {
     border-radius: 9px;
     border-color: #cbfafa;
     background-color: #86f8f8;
+    width: 100px;
+    margin-left: 20px;
+    height: 30px;
 }
+
+h1 {
+    text-align: center;
+    color: darkblue;
+    display: inline-block;
+    margin: 0px;
+    margin-left: 30%;
+  }
+
+ .icon {
+  color: black;
+    width: 3%;
+    height: 56%;
+    font-size: 25px;
+    display: inline-block;
+    margin-top: 6px;
+  }

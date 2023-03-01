@@ -1,47 +1,32 @@
 body {
-    background-color: aliceblue;
+    background-color: #f0f8ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-td,
-th {
-    border: 1px solid #11efe4;
-    text-align: center;
-    display: block;
-}
-
-th,
-td {
-    padding: 15px;
-}
-
-th {
-    background-color: rgb(203, 250, 250);
-}
-tr { display: block; float: left; }
-
-.imageBox
-{
-	width: 50%;
-    margin-top: 9.3%;
+.imageBox {
+    width: 40%;
+    margin-top: 5%;
     margin-left: 30%;
-    overflow: hidden;
+    overflow: auto;
     display: inline-block;
+    border-radius: 20px;
 }
 
-.imageBox img
-{
-	width: 100%;
+.imageBox img {
+    width: 100%;
 }
+
 .container {
     width: 100%;
     height: 100%;
 }
 
 .left-side {
-    width : 30%;
+    width: 30%;
     height: 100%;
     display: inline-block;
 }
+
 .right-side {
     width: 69.6%;
     height: 100%;
@@ -49,6 +34,224 @@ tr { display: block; float: left; }
     vertical-align: top;
 }
 
-.table {
- margin-top: 4%;
+h2 {
+    text-transform: capitalize;
+    margin-left: 10%;
+    margin-bottom: 0px;
+}
+
+h5 {
+    text-transform: capitalize;
+    margin-left: 10%;
+    color: blue;
+    margin-top: 10px;
+}
+
+.about {
+    margin-left: 10%;
+    margin-top: 2%;
+    color: black;
+    border-bottom: 2px solid blue;
+    font-weight: bold;
+    font-size: large;
+    padding-top: 3%;
+    padding-bottom: 1%;
+}
+
+.about i {
+    margin-right: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+.contact-details,
+.basic-information {
+    margin-left: 10%;
+    margin-top: 3%;
+    color: #656565;
+}
+
+.phone {
+    color: black;
+    display: inline-block;
+}
+
+.number {
+    margin-left: 30%;
+    display: inline-block;
+    color: blue;
+}
+
+.address-detail,
+.email-detail,
+.experience,
+.gender-detail,
+.contact-number,
+.date,
+.middlename,
+.permanentaddress,
+.bloodgroup,
+.emergencynumber,
+.dateofbirth {
+    margin-top: 1.5%;
+    margin-left: 5%;
+}
+
+.address,
+.email,
+.doj,
+.yoe,
+.gender,
+.m-name,
+.p-address,
+.dob,
+.e-number,
+.bg {
+    color: black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.see {
+    border: none;
+    background: transparent;
+    color: blue;
+}
+
+.seemore {
+    display: none;
+}
+
+.seemore1 {
+    display: inline;
+}
+
+.address-detail .text {
+    margin-left: 28.3%;
+    display: inline-block;
+    color: blue;
+}
+
+.email-detail .text {
+    margin-left: 28%;
+    display: inline-block;
+    color: blue;
+}
+
+.date .text {
+    margin-left: 21.5%;
+    display: inline-block;
+    color: blue;
+}
+
+.experience .text {
+    margin-left: 12%;
+    display: inline-block;
+    color: blue;
+}
+
+.gender-detail .text {
+    margin-left: 29.2%;
+    display: inline-block;
+    color: blue;
+}
+
+.middlename .text {
+    margin-left: 23.2%;
+    display: inline-block;
+    color: blue;
+}
+
+.permanentaddress .text {
+    margin-left: 17.5%;
+    display: inline-block;
+    color: blue;
+    overflow-wrap: break-word;
+    inline-size: 475px;
+
+}
+
+.emergencynumber .text {
+    margin-left: 16.5%;
+    display: inline-block;
+    color: blue;
+}
+
+.bloodgroup .text {
+    margin-left: 23.8%;
+    display: inline-block;
+    color: blue;
+}
+
+.company {
+    margin-left: 10%;
+    margin-top: 27%;
+    color: #656565;
+    vertical-align: bottom;
+}
+
+.dateofbirth .text {
+    margin-left: 23.2%;
+    display: inline-block;
+    color: blue;
+}
+
+.branch-detail,
+.name-detail,
+.phone-number,
+.company .email-detail {
+    margin-top: 1.5%;
+    margin-left: 5%;
+}
+
+.branch,
+.name,
+.phone,
+.company .email {
+    color: black;
+    display: inline-block;
+}
+
+.branch-detail .text {
+    margin-left: 27.2%;
+    display: inline-block;
+    color: blue;
+}
+
+.name-detail .text {
+    margin-left: 29.2%;
+    display: inline-block;
+    color: blue;
+    font-size: larger;
+    font-weight: 500;
+}
+
+.phone-number .number {
+    margin-left: 28.2%;
+    display: inline-block;
+    color: blue;
+}
+
+.company .email-detail .text {
+    margin-left: 23.5%;
+    display: inline-block;
+    color: blue;
+}
+
+.icons {
+    margin-left: 5%;
+    margin-top: 4%;
+}
+
+.insta,
+.fb,
+.twitter {
+    display: inline-block;
+    color: black;
+    font-size: 25px;
+}
+
+.fb,
+.twitter {
+    margin-left: 12%;
 }

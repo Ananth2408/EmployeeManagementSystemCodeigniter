@@ -1,52 +1,63 @@
     body {
       margin: 0px;
     }
-    
+
     .topnav {
       height: 60px;
       margin: 0px;
       width: 100%;
-      background-color: #bed5fa;
+      background-color: #aecbf9;
     }
 
-   .create {
-    float: right;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 10px;
-    text-decoration: none;
-    font-size: 17px;
-    border-radius: 5px;
-    width: 118px;
-    height: 10px;
+    .create {
+      float: right;
+      display: block;
+      color: black;
+      background-color: #70bbf7;
+      text-align: center;
+      padding: 10px;
+      text-decoration: none;
+      text-align: center;
+      font-size: 17px;
+      border-radius: 5px;
+      width: 118px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      height: 20px;
     }
 
-     .create:hover,
-      .create.active:hover {
+    .create:hover,
+    .create.active:hover {
       background-color: #8bc7f8;
       color: black;
     }
 
     .dropbtn {
       display: block;
-    color: black;
-    text-align: center;
-    padding: 10px;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 7px;
-    width: 62px;
-    height: 30px;
-    border: none;
-    background: transparent;
+      color: black;
+      text-align: center;
+      padding: 10px;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 7px;
+      width: 62px;
+      height: 30px;
+      border: none;
+      background: transparent;
     }
 
     .dropdown {
       position: relative;
       display: inline-block;
+      background-color: #70bbf7;
       margin-right: 30px;
-      
+      border-radius: 10px;
+      margin-top: 10px;
+      text-align: center;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      height: 40px;
     }
 
     .dropdown-content {
