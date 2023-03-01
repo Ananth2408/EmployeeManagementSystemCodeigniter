@@ -40,14 +40,22 @@
 
 $route['default_controller'] = "employeecontroller";
 $route['404_override'] = '';
+$route[employee] = "employeecontroller/index";
+$route[employee.'/(:num)'] = "employeecontroller/index";
 $route['create'] = 'employeecontroller/create';
 $route['edit'] = 'employeecontroller/edit';
 $route['editemployee'] = 'employeecontroller/editEmployee';
-$route['name'] = 'employeecontroller/showEmployeeOrderbyName';
-$route['experience'] = 'employeecontroller/showEmployeeOrderbyExperience';
-$route['search'] = 'employeecontroller/searchEmployee';
+$route[name] = 'employeecontroller/showEmployeeOrderbyName';
+$route[name.'/(:num)'] = 'employeecontroller/showEmployeeOrderbyName';
+$route[experience] = 'employeecontroller/showEmployeeOrderbyExperience';
+$route[experience.'/(:num)'] = 'employeecontroller/showEmployeeOrderbyExperience';
+$route[search] = 'employeecontroller/searchEmployee';
+$route[search.'/(:any)/(:num)'] = 'employeecontroller/searchEmployee';
+$route[search.'/(:any)'] = 'employeecontroller/searchEmployee';
 $route['technology'] = 'employeecontroller/showbytechnolgies';
-$route['showtechnology'] = 'employeecontroller/showemployeesbytechnologies';
+$route[showtechnology] = 'employeecontroller/showemployeesbytechnologies';
+$route[showtechnology.'/(:any)/(:num)'] = 'employeecontroller/showemployeesbytechnologies';
+$route[showtechnology.'/(:any)'] = 'employeecontroller/showemployeesbytechnologies';
 $route['delete'] = 'employeecontroller/delete';
 $route['view'] = 'employeecontroller/showEmployee';
 // $route['insertdata'] = 'createController/insertData';

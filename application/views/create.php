@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
         $(function () {
             $("#designation").select2();
@@ -18,7 +19,12 @@
 </head>
 
 <body>
-    <h1>Create Employee Details</h1>
+    <div class="top-bar">
+        <script>
+            document.write('<a href="' + document.referrer + '"><div class="icon" ><i class="fa fa-arrow-circle-left" aria-hidden="true"></div></i></a>');
+        </script>
+        <h1>Create Employee Details</h1>
+    </div>
 
     <?php echo form_open('employeecontroller/insertData'); ?>
 
@@ -41,7 +47,8 @@
     <?php echo form_error('lastname'); ?><br><br>
 
     <label for="photo">Upload Profie Picture: </label>
-    <input class='photo' type="file" name="photo" accept="image/x-png,image/jpg,image/jpeg" value="<?php echo set_value('photo'); ?>">
+    <input class='photo' type="file" name="photo" accept="image/x-png,image/jpg,image/jpeg"
+        value="<?php echo set_value('photo'); ?>">
     <?php echo form_error('photo'); ?><br><br>
 
 
@@ -50,7 +57,7 @@
     <?php echo form_error('date_of_birth'); ?><br><br>
 
     <label class="gender" for="gender">Gender :</label>
-    <input  type="radio" name="gender" value="male" <?php echo set_radio('gender', 'male'); ?>>
+    <input type="radio" name="gender" value="male" <?php echo set_radio('gender', 'male'); ?>>
     <span>Male</span>
     <input class="gender-types" type="radio" name="gender" value="female" <?php echo set_radio('gender', 'female'); ?>>
     <span>Female</span>
@@ -60,15 +67,22 @@
 
 
     <label for="phonenumber">Phone Number: </label>
-    <input class='phonenumber' type="number" name="phonenumber" value="<?php echo set_value('phonenumber'); ?>">
+    <input class='phonenumber' type="text" name="phonenumber" onkeypress="return onlyNumberKey(event)" maxlength="10"
+        value="<?php echo set_value('phonenumber'); ?>">
     <?php echo form_error('phonenumber'); ?><br><br>
 
+    <label for="emergencynumber">Emergency Number: </label>
+    <input class='emergencynumber' type="text" name="emergencynumber" onkeypress="return onlyNumberKey(event)"
+        maxlength="10" value="<?php echo set_value('emergencynumber'); ?>">
+    <?php echo form_error('emergencynumber'); ?><br><br>
+
     <label for="email">Email-Id : </label>
-    <input class='email' type="text" name="email" value="<?php echo set_value('email'); ?>">
-    <?php echo form_error('Email_id'); ?><br><br>
+    <input class='email' type="email" name="email" value="<?php echo set_value('email'); ?>">
+    <?php echo form_error('email'); ?><br><br>
 
     <label for="date_of_joining">Date of joining: </label>
-    <input class='doj' type="date" name="date_of_joining" placeholder="dd-mm-yyyy" value="<?php echo set_value('date_of_joining'); ?>">
+    <input class='doj' type="date" name="date_of_joining" placeholder="dd-mm-yyyy"
+        value="<?php echo set_value('date_of_joining'); ?>">
     <?php echo form_error('date_of_joining'); ?><br><br>
 
     <label class="designation" for="designation">Designation: </label>
@@ -173,12 +187,8 @@
         <option value="6" <?php echo set_select('technology[]', '6'); ?>>JavaScript</option>
         <option value="7" <?php echo set_select('technology[]', '7'); ?>>Angular</option>
         <option value="8" <?php echo set_select('technology[]', '8'); ?>>React</option>
-    </select><br /><br>
-
-    <label for="emergencynumber">Emergency Number: </label>
-    <input class='emergencynumber' type="number" name="emergencynumber"
-        value="<?php echo set_value('emergencynumber'); ?>">
-    <?php echo form_error('emergencynumber'); ?><br><br>
+    </select>
+    <?php echo form_error('technology'); ?><br /><br>
 
     <label for="current_address">Current Address: </label>
     <textarea class="currentaddress" name="current_address"></textarea>
@@ -189,8 +199,19 @@
     <?php echo form_error('permanent_address'); ?><br><br>
 
     <input class='submit' type="submit" name="Submit">
-    <input class='back' type="button" onclick=javascript:history.go(-1) name="Back" value="Back">
     </form>
+
+    <script>
+        function onlyNumberKey(evt) {
+            var input = true;
+            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
+                input = false;
+            }
+
+            return input;
+        }
+    </script>
 </body>
 
 </html>

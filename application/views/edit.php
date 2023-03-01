@@ -10,6 +10,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script>
     $(function () {
       $("#designation").select2();
@@ -18,12 +19,23 @@
 </head>
 
 <body>
-
+<div class="top-bar">
+        <script>
+            document.write('<a href="' + document.referrer + '"><div class="icon" ><i class="fa fa-arrow-circle-left" aria-hidden="true"></div></i></a>');
+        </script>
+        <h1>Edit Employee Details</h1>
+    </div>
   <?php
   foreach ($employee_list as $employee) {
     echo form_open('editemployee'); ?>
 
     <input type="hidden" name="id" value=<?php echo $employee->id; ?>>
+
+    <label for="company">Company: </label>
+    <select class="company" name="company" id="company">
+        <option value="1"<?php if ($employee->company_id == 1) {echo "selected";} ?>>Ideas2It</option>
+        <option value="2" <?php if ($employee->company_id == 2) {echo "selected";} ?>>Element5</option>
+    </select><br><br>
 
     <label for="firstname">First Name: </label>
     <input class='firstname' type="text" name="firstname" value="<?php echo $employee->first_name; ?>">
@@ -46,14 +58,14 @@
     <input class='dob' type="date" name="date_of_birth" value="<?php echo $employee->date_of_birth; ?>">
     <?php echo form_error('date_of_birth'); ?><br><br>
 
-    <label for="gender">Gender :</label>
-    <input  class='gender' type="radio" name="gender" value="male" <?php if ($employee->gender == 'male')
+    <label class="gender" for="gender">Gender :</label>
+    <input type="radio" name="gender" value="male" <?php if ($employee->gender == 'male')
       echo 'checked="checked"'; ?>>
     <span for="male">Male</span>
-    <input class='gender' type="radio" name="gender" value="female" <?php if ($employee->gender == 'female')
+    <input class="gender-types" type="radio" name="gender" value="female" <?php if ($employee->gender == 'female')
       echo 'checked="checked"'; ?>>
     <span for="female">Female</span>
-    <input class='gender' type="radio" name="gender" value="others" <?php if ($employee->gender == 'others')
+    <input class="gender-types" type="radio" name="gender" value="others" <?php if ($employee->gender == 'others')
       echo 'checked="checked"'; ?>>
     <span for="others">others</span>
     <?php echo form_error('gender'); ?><br><br>
@@ -263,7 +275,6 @@
     </select>
     <?php echo form_error('bloodgroup'); ?><br><br>
 
-    <span class="note">(* Select only newly konwn languages)</span><br>
     <label for="tecnology">Known Languages: </label>
     <select class="technology" name="technology[ ]" id="technology" multiple>
         <option value="1" <?php echo set_select('technology[]', '1'); ?>>Php</option>
@@ -274,7 +285,8 @@
         <option value="6" <?php echo set_select('technology[]', '6'); ?>>JavaScript</option>
         <option value="7" <?php echo set_select('technology[]', '7'); ?>>Angular</option>
         <option value="8" <?php echo set_select('technology[]', '8'); ?>>React</option>
-    </select><br /><br>
+    </select><br>
+    <span class="note">(* Select only newly konwn languages)</span><br><br>
 
 
     <label for="qualification">Qualification: </label>
@@ -290,7 +302,6 @@
     <?php echo form_error('permanent_address'); ?><br><br>
 
     <input class='submit' type="submit" name="Update" value="Update">
-    <input class='back' type="button" onclick = javascript:history.go(-1) name="Back" value="Back">
   <?php } ?>
   </form>
 </body>
