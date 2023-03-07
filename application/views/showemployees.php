@@ -49,9 +49,9 @@
         </td>
         <td>
           <a href="<?php echo base_url(); ?>view?id=<?php echo $employee->id; ?>"><i class="fa fa-eye"
-              aria-hidden="true"></i>\</a>
+              aria-hidden="true"></i> </a>
           <a href="<?php echo base_url(); ?>edit?id=<?php echo $employee->id; ?>"><i
-              class="fa fa-pencil-square-o"></i>\</a>
+              class="fa fa-pencil-square-o"></i> </a>
           <a href="<?php echo base_url(); ?>delete?id=<?php echo $employee->id; ?>"><i class="fa fa-trash-o"></i></a>
         </td>
       </tr>
