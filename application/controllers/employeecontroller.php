@@ -171,6 +171,7 @@ class EmployeeController extends CI_Controller
     $employeeData['emergency_number'] = $this->input->POST('emergencynumber');
     $employeeData['current_address'] = $this->input->POST('current_address');
     $employeeData['permanent_address'] = $this->input->POST('permanent_address');
+    $employeeData['company_id'] = $this->input->post('company');
     $employeeTechnology = $this->input->POST('technology');
     $result = $this->EmployeeModel->edit_employee($employeeData);
     $output = $this->EmployeeModel->add_technologies($employeeTechnology, $employeeData['id']);

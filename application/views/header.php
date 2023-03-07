@@ -12,7 +12,7 @@
 
 <body>
   <div class="topnav">
-    <form action="<?php echo base_url() ?>search" method="post">
+    <form action="<?php echo base_url() ?>search" method="post" autocomplete="off" >
       <input class="search" type="text" onkeypress="return isvalidinput(event)" placeholder="Search..."
         name="firstname">
       <div class="input-icons">

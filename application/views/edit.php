@@ -26,9 +26,8 @@
         <h1>Edit Employee Details</h1>
     </div>
   <?php
-  foreach ($employee_list as $employee) {
-    echo form_open('editemployee'); ?>
-
+  foreach ($employee_list as $employee) { ?>
+   <form action="editemployee" method="post" autocomplete="off">
     <input type="hidden" name="id" value=<?php echo $employee->id; ?>>
 
     <label for="company">Company: </label>
